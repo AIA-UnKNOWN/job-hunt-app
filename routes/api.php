@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth;
+use App\Http\Controllers\Recruiter;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/register', Auth\RegisterController::class);
 Route::post('/login', Auth\LoginController::class);
 Route::middleware('auth:sanctum')->delete('/logout', Auth\LogoutController::class);
+
+Route::prefix('/recruiter')->group(function () {
+    Route::post('/post-job', Recruiter\PostJobController::class)->middleware('auth:sanctum');
+});

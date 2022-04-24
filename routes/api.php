@@ -20,3 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::post('/register', Auth\RegisterController::class);
 Route::post('/login', Auth\LoginController::class);
+Route::middleware('auth:sanctum')->delete('/logout', Auth\LogoutController::class);

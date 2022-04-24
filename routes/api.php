@@ -24,6 +24,7 @@ Route::post('/login', Auth\LoginController::class);
 Route::middleware('auth:sanctum')->delete('/logout', Auth\LogoutController::class);
 
 Route::prefix('/recruiter')->group(function () {
-    Route::post('/post-job', Recruiter\PostJobController::class)->middleware('auth:sanctum');
-    Route::delete('/delete-job/{jobId}', Recruiter\DeleteJobController::class)->middleware('auth:sanctum');
+    Route::post('/job/post', Recruiter\PostJobController::class)->middleware('auth:sanctum');
+    Route::delete('/job/delete/{jobId}', Recruiter\DeleteJobController::class)->middleware('auth:sanctum');
+    Route::get('/job/view/{jobId}', Recruiter\ViewJobController::class)->middleware('auth:sanctum');
 });

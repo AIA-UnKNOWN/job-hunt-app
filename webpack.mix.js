@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+const path = require('path');
 
 /*
  |--------------------------------------------------------------------------
@@ -11,7 +12,27 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
-        //
-    ]);
+mix.js('resources/src/index.tsx', 'public/src').react()
+    .postCss('resources/css/index.css', 'public/css', [
+        require('tailwindcss')
+    ])
+    .webpackConfig({
+        module: {
+            rules: [
+                {
+                    test: /\.tsx?$/,
+                    loader: "ts-loader",
+                    exclude: /node_modules/
+                }
+            ]
+        },
+        resolve: {
+            extensions: ["*", ".js", ".jsx", ".vue", ".ts", ".tsx"]
+        }
+    })
+    .alias({
+        '@App': path.join(__dirname, 'resources/src/App'),
+        '@pages': path.join(__dirname, 'resources/src/pages'),
+        '@screens': path.join(__dirname, 'resources/src/screens'),
+        '@reducers': path.join(__dirname, 'resources/src/reducers'),
+    });

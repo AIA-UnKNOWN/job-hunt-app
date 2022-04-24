@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "noImplicitAny": true,
+    "sourceMap": true,
+    "jsx": "react-jsx",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "baseUrl": ".",
+    "paths": {
+      "@*": ["resources/src/*"]
+    }
+  },
+  "include": [
+    "resources/src/**/*.ts",
+    "resources/src/**/*.tsx",
+  ]
+}

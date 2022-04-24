@@ -25,4 +25,5 @@ Route::middleware('auth:sanctum')->delete('/logout', Auth\LogoutController::clas
 
 Route::prefix('/recruiter')->group(function () {
     Route::post('/post-job', Recruiter\PostJobController::class)->middleware('auth:sanctum');
+    Route::delete('/delete-job/{jobId}', Recruiter\DeleteJobController::class)->middleware('auth:sanctum');
 });

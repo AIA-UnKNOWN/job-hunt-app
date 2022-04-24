@@ -1,11 +1,12 @@
 import { FC } from 'react';
-import Auth from '@pages/Auth';
-import Home from '@pages/Home';
+import useApp from './hook';
 
 const App: FC = () => {
+  const { renderPage } = useApp();
+
   return (
     <div>
-      
+      {renderPage()}
     </div>
   );
 }

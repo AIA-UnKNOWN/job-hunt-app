@@ -27,4 +27,5 @@ Route::prefix('/recruiter')->group(function () {
     Route::post('/job/post', Recruiter\PostJobController::class)->middleware('auth:sanctum');
     Route::delete('/job/delete/{jobId}', Recruiter\DeleteJobController::class)->middleware('auth:sanctum');
     Route::get('/job/view/{jobId}', Recruiter\ViewJobController::class)->middleware('auth:sanctum');
+    Route::get('/job/view/{jobId}/applicants', Recruiter\JobApplicantsController::class)->middleware('auth:sanctum');
 });

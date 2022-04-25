@@ -6,7 +6,9 @@ const RegisterForm = ({ onSubmit }) => {
     lastname, setLastname,
     email, setEmail,
     password, setPassword,
-    confirmPassword, setConfirmPassword
+    confirmPassword, setConfirmPassword,
+    formError,
+    validate
   } = useRegisterForm();
 
   return (
@@ -20,6 +22,9 @@ const RegisterForm = ({ onSubmit }) => {
             value={firstname}
             onChange={e => setFirstname(e.target.value)}
           />
+          {formError.firstname && (
+            <span className="text-red text-[13px]">{formError.firstname}</span>
+          )}
         </div>
         <div className="ml-1">
           <label className="text-[14px] ml-1 mb-1 block">Lastname</label>
@@ -29,6 +34,9 @@ const RegisterForm = ({ onSubmit }) => {
             value={lastname}
             onChange={e => setLastname(e.target.value)}
           />
+          {formError.lastname && (
+            <span className="text-red text-[13px]">{formError.lastname}</span>
+          )}
         </div>
       </div>
       <div className="mb-2">
@@ -39,6 +47,9 @@ const RegisterForm = ({ onSubmit }) => {
           value={email}
           onChange={e => setEmail(e.target.value)}
         />
+        {formError.email && (
+          <span className="text-red text-[13px]">{formError.email}</span>
+        )}
       </div>
       <div className="mb-2">
         <label className="text-[14px] ml-1 mb-1 block">Password</label>
@@ -49,6 +60,9 @@ const RegisterForm = ({ onSubmit }) => {
           value={password}
           onChange={e => setPassword(e.target.value)}
         />
+        {formError.password && (
+          <span className="text-red text-[13px]">{formError.password}</span>
+        )}
       </div>
       <div className="mb-2">
         <label className="text-[14px] ml-1 mb-1 block">Confirm Password</label>
@@ -59,12 +73,16 @@ const RegisterForm = ({ onSubmit }) => {
           value={confirmPassword}
           onChange={e => setConfirmPassword(e.target.value)}
         />
+        {formError.confirmPassword && (
+          <span className="text-red text-[13px]">{formError.confirmPassword}</span>
+        )}
       </div>
       <button
         className="bg-black text-white block h-[50px] w-full rounded-md mt-8"
-        onClick={() => onSubmit({
-          firstname, lastname, email, password, confirmPassword
-        })}
+        onClick={() => {
+          if (!validate()) return;
+          onSubmit({ firstname, lastname, email, password, confirmPassword });
+        }}
       >
         Submit
       </button>

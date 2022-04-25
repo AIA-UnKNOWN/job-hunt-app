@@ -6,7 +6,7 @@ import Cookies from 'js-cookie';
 import camelcaseKeys from 'camelcase-keys';
 import { setUser } from '@reducers/userSlice';
 
-const useLoginAsRecruiter = () => {
+const useLoginAsApplicant = () => {
   const dispatch = useDispatch();
   const [loginButtonText, setLoginButtonText] = useState('Login');
 
@@ -22,7 +22,7 @@ const useLoginAsRecruiter = () => {
         body: JSON.stringify({
           email: data.email,
           password: data.password,
-          role: 'recruiter'
+          role: 'applicant'
         })
       });
       const responseData = await response.json();
@@ -39,7 +39,7 @@ const useLoginAsRecruiter = () => {
         autoClose: 1000,
       });
       setTimeout(() => {
-        dispatch(setUser(camelcaseKeys(responseData.user)))
+        dispatch(setUser(camelcaseKeys(responseData.user)));
       }, 1000);
     } catch(error) {
       console.error(error);
@@ -51,4 +51,4 @@ const useLoginAsRecruiter = () => {
   return { onLogin, loginButtonText }
 }
 
-export default useLoginAsRecruiter;
+export default useLoginAsApplicant;

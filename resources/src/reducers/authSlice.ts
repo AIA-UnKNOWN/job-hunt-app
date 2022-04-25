@@ -15,7 +15,7 @@ interface AuthState {
 const authSlice = createSlice({
   name: 'auth',
   initialState: {
-    currentAuth: AUTH_SCREENS[3], // default 0
+    currentAuth: AUTH_SCREENS[0],
   },
   reducers: {
     setCurrentAuth: (state, action) => {

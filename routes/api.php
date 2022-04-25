@@ -44,5 +44,6 @@ Route::prefix('/applicant')->group(function () {
 });
 
 Route::prefix('/job')->group(function () {
+    Route::get('/{id}', Job\IndexController::class);
     Route::post('/{id}/apply', Job\ApplyController::class)->middleware('auth:sanctum');
 });

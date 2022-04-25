@@ -4,7 +4,10 @@ module.exports = {
     './resources/**/*.tsx',
   ],
   theme: {
-    colors: {},
+    colors: {
+      'black': '#3D3D3D',
+      'white': '#FFFFFF',
+    },
     extend: {},
   },
   plugins: [],

@@ -6,6 +6,7 @@ import LoginAsApplicant from './LoginAsApplicant';
 
 const useAuth = () => {
   const AUTH_SCREENS = [
+    'default',
     'register as recruiter',
     'register as applicant',
     'login as recruiter',
@@ -15,20 +16,18 @@ const useAuth = () => {
 
   const renderScreen = () => {
     switch (currentAuth) {
-      case AUTH_SCREENS[0]:
-        return (<RegisterAsRecruiter />);
       case AUTH_SCREENS[1]:
-        return (<RegisterAsApplicant />);
+        return (<RegisterAsRecruiter />);
       case AUTH_SCREENS[2]:
-        return (<LoginAsRecruiter />);
+        return (<RegisterAsApplicant />);
       case AUTH_SCREENS[3]:
+        return (<LoginAsRecruiter />);
+      case AUTH_SCREENS[4]:
         return (<LoginAsApplicant />);
-      default:
-        return null;
     }
   }
 
-  return { AUTH_SCREENS, renderScreen };
+  return { AUTH_SCREENS, currentAuth, setCurrentAuth, renderScreen };
 }
 
 export default useAuth;

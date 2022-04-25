@@ -4,14 +4,17 @@ namespace App\Http\Controllers\Recruiter;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Applicant;
 use Illuminate\Support\Facades\DB;
 
 class JobApplicantsController extends Controller
 {
     function __invoke(Request $request, $jobId)
     {
-        $applicants = Applicant::select(DB::raw('*'))
+        $applicants = DB::table('applicants')
+            ->select(DB::raw("
+                applicants.*,
+                CONCAT(users.first_name, ' ',users.last_name) as name
+            "))
             ->join('users', function ($join) {
                 $join->on('users.id', '=', 'applicants.user_id');
             })

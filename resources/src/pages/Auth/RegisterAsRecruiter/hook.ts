@@ -1,8 +1,11 @@
 import 'react-toastify/dist/ReactToastify.css';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
+import { AUTH_SCREENS, setCurrentAuth } from '@reducers/authSlice';
 
 const useRegisterAsRecruiter = () => {
+  const dispatch = useDispatch();
   const [submitButtonText, setSubmitButtonText] = useState('Submit');
   
   const onRegister = async data => {
@@ -32,6 +35,9 @@ const useRegisterAsRecruiter = () => {
         autoClose: 1000,
       });
       setSubmitButtonText('Submit');
+      setTimeout(() => {
+        dispatch(setCurrentAuth(AUTH_SCREENS[0]));
+      }, 1000);
     }
   }
 

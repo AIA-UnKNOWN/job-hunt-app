@@ -1,6 +1,6 @@
 import useRegisterForm from './hook';
 
-const RegisterForm = ({ onSubmit }) => {
+const RegisterForm = ({ onSubmit, submitButtonText }) => {
   const {
     firstname, setFirstname,
     lastname, setLastname,
@@ -17,7 +17,7 @@ const RegisterForm = ({ onSubmit }) => {
         <div className="mr-1">
           <label className="text-[14px] ml-1 mb-1 block">Firstname</label>
           <input
-            className="block w-full rounded-md h-[40px] bg-light-gray"
+            className="block w-full rounded-md h-[40px] bg-light-gray px-2"
             name="first_name"
             value={firstname}
             onChange={e => setFirstname(e.target.value)}
@@ -29,7 +29,7 @@ const RegisterForm = ({ onSubmit }) => {
         <div className="ml-1">
           <label className="text-[14px] ml-1 mb-1 block">Lastname</label>
           <input
-            className="block w-full rounded-md h-[40px] bg-light-gray"
+            className="block w-full rounded-md h-[40px] bg-light-gray px-2"
             name="last_name"
             value={lastname}
             onChange={e => setLastname(e.target.value)}
@@ -42,7 +42,7 @@ const RegisterForm = ({ onSubmit }) => {
       <div className="mb-2">
         <label className="text-[14px] ml-1 mb-1 block">Email</label>
         <input
-          className="block w-full rounded-md h-[40px] bg-light-gray"
+          className="block w-full rounded-md h-[40px] bg-light-gray px-2"
           name="email"
           value={email}
           onChange={e => setEmail(e.target.value)}
@@ -54,7 +54,7 @@ const RegisterForm = ({ onSubmit }) => {
       <div className="mb-2">
         <label className="text-[14px] ml-1 mb-1 block">Password</label>
         <input
-          className="block w-full rounded-md h-[40px] bg-light-gray"
+          className="block w-full rounded-md h-[40px] bg-light-gray px-2"
           type="password"
           name="password"
           value={password}
@@ -67,7 +67,7 @@ const RegisterForm = ({ onSubmit }) => {
       <div className="mb-2">
         <label className="text-[14px] ml-1 mb-1 block">Confirm Password</label>
         <input
-          className="block w-full rounded-md h-[40px] bg-light-gray"
+          className="block w-full rounded-md h-[40px] bg-light-gray px-2"
           type="password"
           name="password_confirmation"
           value={confirmPassword}
@@ -84,7 +84,7 @@ const RegisterForm = ({ onSubmit }) => {
           onSubmit({ firstname, lastname, email, password, confirmPassword });
         }}
       >
-        Submit
+        {submitButtonText || 'Submit'}
       </button>
     </div>
   );

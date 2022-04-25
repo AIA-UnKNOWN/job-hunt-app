@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth;
 use App\Http\Controllers\Recruiter;
+use App\Http\Controllers\Jobs;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,4 +31,8 @@ Route::prefix('/recruiter')->group(function () {
     Route::get('/job/view/{jobId}', Recruiter\ViewJobController::class)->middleware('auth:sanctum');
     Route::get('/job/view/{jobId}/applicants', Recruiter\JobApplicantsController::class)->middleware('auth:sanctum');
     Route::put('/applicant/{applicantId}/update', Recruiter\ApplicantController::class)->middleware('auth:sanctum');
+});
+
+Route::prefix('/jobs')->group(function () {
+    Route::get('/', Jobs\IndexController::class);
 });

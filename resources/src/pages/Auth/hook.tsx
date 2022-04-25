@@ -1,18 +1,13 @@
-import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { AUTH_SCREENS } from '@reducers/authSlice';
 import RegisterAsRecruiter from './RegisterAsRecruiter';
 import RegisterAsApplicant from './RegisterAsApplicant';
 import LoginAsRecruiter from './LoginAsRecruiter';
 import LoginAsApplicant from './LoginAsApplicant';
+import DefaultPage from './DefaultPage';
 
 const useAuth = () => {
-  const AUTH_SCREENS = [
-    'default',
-    'register as recruiter',
-    'register as applicant',
-    'login as recruiter',
-    'login as applicant'
-  ];
-  const [currentAuth, setCurrentAuth] = useState(AUTH_SCREENS[0]);
+  const currentAuth = useSelector(state => state.auth.currentAuth);
 
   const renderScreen = () => {
     switch (currentAuth) {
@@ -24,10 +19,12 @@ const useAuth = () => {
         return (<LoginAsRecruiter />);
       case AUTH_SCREENS[4]:
         return (<LoginAsApplicant />);
+      default:
+        return (<DefaultPage />);
     }
   }
 
-  return { AUTH_SCREENS, currentAuth, setCurrentAuth, renderScreen };
+  return { renderScreen };
 }
 
 export default useAuth;

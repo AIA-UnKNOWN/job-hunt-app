@@ -27,7 +27,10 @@ const useRegisterAsRecruiter = () => {
     } catch(error) {
       console.error(error);
     } finally {
-      toast('Submitted!');
+      toast('Submitted!', {
+        position: "top-center",
+        autoClose: 1000,
+      });
       setSubmitButtonText('Submit');
     }
   }

@@ -12,13 +12,17 @@ const RegisterAsRecruiter = () => {
   const { onRegister, submitButtonText } = useRegisterAsRecruiter();
 
   return (
-    <div>
+    <div className="relative flex min-h-screen flex-col justify-center items-center">
       <ToastContainer />
-      <BackButton
-        onClick={() => dispatch(setCurrentAuth(AUTH_SCREENS[0]))}
-      />
+      <div className="absolute top-[10px] left-[10px]">
+        <BackButton
+          onClick={() => dispatch(setCurrentAuth(AUTH_SCREENS[0]))}
+        />
+      </div>
       <div>
-        <h1>Register as recruiter</h1>
+        <div className="mb-5">
+          <p className="text-center text-[25px]">Register as recruiter</p>
+        </div>
         <RegisterForm
           onSubmit={onRegister}
           submitButtonText={submitButtonText}

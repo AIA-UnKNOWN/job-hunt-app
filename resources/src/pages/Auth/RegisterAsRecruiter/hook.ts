@@ -26,18 +26,24 @@ const useRegisterAsRecruiter = () => {
           role: 'recruiter'
         })
       });
-      console.log(await response.json())
-    } catch(error) {
-      console.error(error);
-    } finally {
+      if (!response.ok) {
+        toast.error('Email already taken', {
+          position: "top-center",
+          autoClose: 1000,
+        });
+        return;
+      }
       toast('Submitted!', {
         position: "top-center",
         autoClose: 1000,
       });
-      setSubmitButtonText('Submit');
       setTimeout(() => {
         dispatch(setCurrentAuth(AUTH_SCREENS[0]));
       }, 1000);
+    } catch(error) {
+      console.error(error);
+    } finally {
+      setSubmitButtonText('Submit');
     }
   }
 

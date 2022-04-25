@@ -38,7 +38,7 @@ const Auth: FC = () => {
   }
 
   return (
-    <div>
+    <div className="flex min-h-screen justify-center items-center">
       {renderScreen()}
     </div>
   );

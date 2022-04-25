@@ -35,4 +35,5 @@ mix.js('resources/src/index.tsx', 'public/src').react()
         '@pages': path.join(__dirname, 'resources/src/pages'),
         '@screens': path.join(__dirname, 'resources/src/screens'),
         '@reducers': path.join(__dirname, 'resources/src/reducers'),
+        '@animations': path.join(__dirname, 'resources/src/animations'),
     });

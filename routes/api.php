@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth;
 use App\Http\Controllers\Recruiter;
 use App\Http\Controllers\Jobs;
+use App\Http\Controllers\Applicant;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,4 +36,8 @@ Route::prefix('/recruiter')->group(function () {
 
 Route::prefix('/jobs')->group(function () {
     Route::get('/', Jobs\IndexController::class);
+});
+
+Route::prefix('/applicant')->group(function () {
+    Route::get('/applied-jobs', Applicant\AppliedJobsController::class)->middleware('auth:sanctum');
 });

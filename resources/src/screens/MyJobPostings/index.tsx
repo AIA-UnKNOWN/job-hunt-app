@@ -1,9 +1,11 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import useMyJobPostings from './hook';
 import LoadingAnimation from '@animations/LoadingAnimation';
 import JobPosting from './JobPosting';
+import { SCREENS, setCurrentScreen } from '@reducers/recruiterScreenSlice';
 
 const MyJobPostings = () => {
+  const dispatch = useDispatch();
   const { isLoading } = useMyJobPostings();
   const myJobPostings = useSelector(state => state.myJobPostings.list);
 
@@ -12,6 +14,7 @@ const MyJobPostings = () => {
       <div className="flex flex-1 flex-col">
         <button
           className="h-[50px] bg-black text-white block rounded-md my-4"
+          onClick={() => dispatch(setCurrentScreen(SCREENS[2]))}
         >
           Post a job
         </button>

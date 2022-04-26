@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import RecruiterHeader from '@layouts/RecruiterHeader';
 import RecruiterPage from './Recruiter';
 import ApplicantHeader from '@layouts/ApplicantHeader';
+import Applicant from './Applicant';
 
 const Home: FC = () => {
   const user = useSelector(state => state.user.user);
@@ -16,7 +17,10 @@ const Home: FC = () => {
             <RecruiterPage />
           </>
         ) : (
-          <ApplicantHeader />
+          <>
+            <ApplicantHeader />
+            <Applicant />
+          </>
         )}
       </>
     </div>

@@ -4,6 +4,7 @@ import userSlice from '@reducers/userSlice';
 import myJobPostingsSlice from '@reducers/myJobPostingsSlice';
 import recruiterScreenSlice from '@reducers/recruiterScreenSlice';
 import jobSlice from '@reducers/jobSlice';
+import applicantScreenSlice from '@reducers/applicantScreenSlice';
 
 export default configureStore({
   reducer: {
@@ -12,5 +13,6 @@ export default configureStore({
     myJobPostings: myJobPostingsSlice,
     recruiterScreen: recruiterScreenSlice,
     job: jobSlice,
+    applicantScreen: applicantScreenSlice
   }
 });

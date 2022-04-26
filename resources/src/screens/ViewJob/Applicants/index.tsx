@@ -17,7 +17,7 @@ const Applicants = ({ jobId }) => {
             name={applicant.name}
           />
         )) : (
-          <div>
+          <div className="flex justify-center items-center">
             <span>No applicants for this job.</span>
           </div>
         )}

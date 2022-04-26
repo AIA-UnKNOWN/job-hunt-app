@@ -19,6 +19,7 @@ class JobApplicantsController extends Controller
                 $join->on('users.id', '=', 'applicants.user_id');
             })
             ->where('job_id', $jobId)
+            ->where('status', 'applied')
             ->get();
         return response()->json($applicants);
     }

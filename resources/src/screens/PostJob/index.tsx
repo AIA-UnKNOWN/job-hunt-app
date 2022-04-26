@@ -50,7 +50,7 @@ const PostJob = () => {
             )}
           </div>
           <div className="mb-2 flex">
-            <div className="mr-1">
+            <div className="mr-1 w-1/2">
               <label className="text-[14px] ml-1 mb-1 block">Min Salary</label>
               <input
                 className="block w-full rounded-md h-[40px] bg-light-gray px-2"
@@ -62,7 +62,7 @@ const PostJob = () => {
                 <span className="text-red text-[13px]">{formError.minSalary}</span>
               )}
             </div>
-            <div className="ml-1">
+            <div className="ml-1 w-1/2">
               <label className="text-[14px] ml-1 mb-1 block">Max Salary</label>
               <input
                 className="block w-full rounded-md h-[40px] bg-light-gray px-2"

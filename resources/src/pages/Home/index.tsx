@@ -7,7 +7,7 @@ const Home: FC = () => {
   const user = useSelector(state => state.user.user);
 
   return (
-    <div className="h-screen">
+    <div className="h-screen max-w-[700px] mx-auto">
       <>
         {user.role === 'recruiter' ? (
           <>

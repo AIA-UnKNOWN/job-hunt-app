@@ -23,8 +23,7 @@ const useJobPosting = () => {
           Authorization: `Bearer ${Cookies.get('token')}`
         }
       });
-      if (confirm("Delete this post?"))
-        getMyJobPostings(Cookies.get('token'));
+      getMyJobPostings(Cookies.get('token'));
     } catch(error) {
       console.error(error);
     }

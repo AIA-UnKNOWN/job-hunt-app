@@ -25,7 +25,10 @@ const JobPosting = ({
       <div className="flex justify-between items-center mt-4">
         <button
           className="h-[40px] w-[40px] flex justify-center items-center border border-black rounded-full"
-          onClick={() => deleteJob(id)}
+          onClick={() => {
+            if (confirm('Delete this post?'))
+              deleteJob(id);
+          }}
         >
           <FaTrashAlt />
         </button>

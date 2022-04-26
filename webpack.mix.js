@@ -37,4 +37,5 @@ mix.js('resources/src/index.tsx', 'public/src').react()
         '@reducers': path.join(__dirname, 'resources/src/reducers'),
         '@animations': path.join(__dirname, 'resources/src/animations'),
         '@common': path.join(__dirname, 'resources/src/common'),
+        '@layouts': path.join(__dirname, 'resources/src/layouts'),
     });

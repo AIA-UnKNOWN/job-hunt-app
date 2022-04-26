@@ -1,9 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import Cookies from 'js-cookie';
 import camelcaseKeys from 'camelcase-keys';
+import { useDispatch, useSelector } from 'react-redux';
+import { setCurrentJob } from '@reducers/jobSlice';
 
 const useApplicants = jobId => {
-  const [applicants, setApplicants] = useState([]);
+  const dispatch = useDispatch();
+  const job = useSelector(state => state.job.data);
 
   useEffect(() => {
     const token = Cookies.get('token');
@@ -20,13 +23,16 @@ const useApplicants = jobId => {
         }
       });
       const applicants = await response.json();
-      setApplicants(camelcaseKeys(applicants))
+      dispatch(setCurrentJob({
+        ...job,
+        applicants: camelcaseKeys(applicants)
+      }));
     } catch(error) {
       console.error(error);
     }
   }
 
-  return { applicants, getJobApplicants };
+  return { getJobApplicants };
 }
 
 export default useApplicants;

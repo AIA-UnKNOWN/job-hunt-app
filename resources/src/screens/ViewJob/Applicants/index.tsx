@@ -1,8 +1,10 @@
+import { useSelector } from 'react-redux';
 import useApplicants from './hook';
 import Applicant from './Applicant';
 
 const Applicants = ({ jobId }) => {
-  const { applicants } = useApplicants(jobId);
+  useApplicants(jobId);
+  const applicants = useSelector(state => state.job.data.applicants);
   
   return (
     <div className="mt-4">
@@ -10,7 +12,7 @@ const Applicants = ({ jobId }) => {
         Applicants
       </p>
       <div className="mt-2">
-        {applicants.length > 0 ? applicants.map(applicant => (
+        {applicants && applicants.length > 0 ? applicants.map(applicant => (
           <Applicant
             key={applicant.id}
             id={applicant.id}

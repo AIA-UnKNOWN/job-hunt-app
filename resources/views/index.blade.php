@@ -9,7 +9,7 @@
 </head>
 <body>
     
-    <div id="root"></div>
+    <div id="root" class="min-h-screen"></div>
 
     <script src="{{ asset('src/index.js') }}"></script>
 </body>

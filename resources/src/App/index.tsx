@@ -5,7 +5,7 @@ const App: FC = () => {
   const { renderPage } = useApp();
 
   return (
-    <div>
+    <div className="min-h-screen">
       {renderPage()}
     </div>
   );

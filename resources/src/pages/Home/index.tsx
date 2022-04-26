@@ -1,15 +1,19 @@
 import { FC } from 'react';
 import { useSelector } from 'react-redux';
 import RecruiterHeader from '@layouts/RecruiterHeader';
+import RecruiterPage from './Recruiter';
 
 const Home: FC = () => {
   const user = useSelector(state => state.user.user);
 
   return (
-    <div>
+    <div className="h-screen">
       <>
         {user.role === 'recruiter' ? (
-          <RecruiterHeader />
+          <>
+            <RecruiterHeader />
+            <RecruiterPage />
+          </>
         ) : null}
       </>
     </div>

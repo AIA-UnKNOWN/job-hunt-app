@@ -32,7 +32,10 @@ const ApplicantHeader = () => {
           </button>
           <button
             className="flex items-center my-2"
-            onClick={logout}
+            onClick={() => {
+              if (confirm('Are you sure you want to logout?'))
+                logout();
+            }}
           >
             <span className="mr-2 text-[20px]">
               Logout

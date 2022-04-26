@@ -1,9 +1,11 @@
-import MyJobPostings from '@screens/MyJobPostings';
+import useRecruiterPage from './hook';
 
 const RecruiterPage = () => {
+  const { renderPage } = useRecruiterPage();
+
   return (
     <>
-      <MyJobPostings />
+      {renderPage()}
     </>
   );
 }

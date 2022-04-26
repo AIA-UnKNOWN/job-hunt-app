@@ -1,8 +1,11 @@
 import { FaTrashAlt } from 'react-icons/fa';
+import useJobPosting from './hook';
 
 const JobPosting = ({
-  id, title, description, minSalary, maxSalary
+  id, title, description, minSalary, maxSalary, status
 }) => {
+  const { viewJob } = useJobPosting();
+
   return (
     <div className="border border-black p-4 rounded-md mb-2">
       <p className="text-[20px] font-bold">
@@ -27,6 +30,7 @@ const JobPosting = ({
         </button>
         <button
           className="h-[40px] w-[100px] bg-black text-white rounded-md text-[15px]"
+          onClick={() => viewJob({ id, title, description, minSalary, maxSalary, status })}
         >
           View
         </button>

@@ -1,0 +1,23 @@
+import { createSlice } from '@reduxjs/toolkit';
+
+const SCREENS = [
+  'my job postings',
+  'view job',
+  'post a job'
+];
+
+const recruiterScreenSlice = createSlice({
+  name: 'recruiterScreen',
+  initialState: {
+    currentScreen: SCREENS[0]
+  },
+  reducers: {
+    setCurrentScreen: (state, action) => {
+      state.currentScreen = action.payload;
+    }
+  }
+});
+
+export { SCREENS };
+export const { setCurrentScreen } = recruiterScreenSlice.actions;
+export default recruiterScreenSlice.reducer;

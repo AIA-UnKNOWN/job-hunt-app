@@ -26,6 +26,7 @@ const MyJobPostings = () => {
               description={jobPosting.description}
               minSalary={jobPosting.minSalary}
               maxSalary={jobPosting.maxSalary}
+              status={jobPosting.status}
             />
           )) : (
             <div>

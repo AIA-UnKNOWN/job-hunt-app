@@ -3,7 +3,7 @@ import Cookies from 'js-cookie';
 import { useDispatch } from 'react-redux';
 import { setUser } from '@reducers/userSlice';
 
-const useApplicantHeader = () => {
+const useRecruiterHeader = () => {
   const dispatch = useDispatch();
   const [isCollapsed, setIsCollapsed] = useState(false);
 
@@ -31,4 +31,4 @@ const useApplicantHeader = () => {
   return { isCollapsed, setIsCollapsed, logout }
 }
 
-export default useApplicantHeader;
+export default useRecruiterHeader;

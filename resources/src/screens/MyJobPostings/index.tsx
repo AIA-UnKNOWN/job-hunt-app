@@ -8,16 +8,19 @@ const MyJobPostings = () => {
   const dispatch = useDispatch();
   const { isLoading } = useMyJobPostings();
   const myJobPostings = useSelector(state => state.myJobPostings.list);
+  const role = useSelector(state => state.user.user.role);
 
   return (
     <div className="flex flex-1 flex-col h-full p-2">
       <div className="flex flex-1 flex-col">
-        <button
-          className="h-[50px] bg-black text-white block rounded-md my-4"
-          onClick={() => dispatch(setCurrentScreen(SCREENS[2]))}
-        >
-          Post a job
-        </button>
+        {role === 'recruiter' && (
+          <button
+            className="h-[50px] bg-black text-white block rounded-md my-4"
+            onClick={() => dispatch(setCurrentScreen(SCREENS[2]))}
+          >
+            Post a job
+          </button>
+        )}
         <div className="flex flex-col flex-1">
           {isLoading ? (
             <LoadingAnimation />

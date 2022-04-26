@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
 
 const ApplicantHeader = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const jobPostingList = useSelector(state => state.myJobPostings.list);
 
   return (
     <div className="shadow-md h-[60px] flex justify-start items-center px-5">
@@ -24,7 +26,7 @@ const ApplicantHeader = () => {
             </span>
             <div className="h-[40px] w-[40px] bg-light-gray text-white rounded-full flex justify-center items-center">
               <span className="text-[20px] font-bold">
-                8
+                {jobPostingList.length}
               </span>
             </div>
           </button>

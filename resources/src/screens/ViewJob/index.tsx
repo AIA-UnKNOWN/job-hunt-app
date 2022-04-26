@@ -2,11 +2,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { SCREENS, setCurrentScreen } from '@reducers/recruiterScreenSlice';
 import BackButton from '@common/BackButton';
 import Applicants from './Applicants';
+import useViewJob from './hook';
 
 const ViewJob = () => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.user.user);
   const job = useSelector(state => state.job.data);
+  const { apply, applyButtonText } = useViewJob();
   
   return (
     <div className="p-4">
@@ -40,9 +42,9 @@ const ViewJob = () => {
           <div className="mt-10 flex justify-end">
             <button
               className="block h-[40px] bg-black text-white w-[100px] rounded-md"
-              onClick={() => null}
+              onClick={() => apply(job.id)}
             >
-              Apply
+              {applyButtonText}
             </button>
           </div>
         )}

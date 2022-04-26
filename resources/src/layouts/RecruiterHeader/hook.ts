@@ -2,6 +2,8 @@ import { useState } from 'react';
 import Cookies from 'js-cookie';
 import { useDispatch } from 'react-redux';
 import { setUser } from '@reducers/userSlice';
+import { setCurrentAuth, AUTH_SCREENS } from '@reducers/authSlice';
+import { setCurrentPage, PAGES } from '@reducers/pageSlice';
 
 const useRecruiterHeader = () => {
   const dispatch = useDispatch();
@@ -18,6 +20,8 @@ const useRecruiterHeader = () => {
         }
       });
       clearData();
+      dispatch(setCurrentPage(PAGES[0]));
+      dispatch(setCurrentAuth(AUTH_SCREENS[0]));
     } catch(error) {
       console.error(error);
     }

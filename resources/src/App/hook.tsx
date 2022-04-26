@@ -3,14 +3,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import Cookies from 'js-cookie';
 import camelcaseKeys from 'camelcase-keys';
 import { setUser } from '@reducers/userSlice';
+import { setCurrentPage, PAGES } from '@reducers/pageSlice';
 import Auth from '@pages/Auth';
 import Home from '@pages/Home';
 
 const useApp = () => {
-  const PAGES = ['auth', 'home'];
   const user = useSelector(state => state.user.user);
+  const currentPage = useSelector(state => state.page.currentPage);
   const dispatch = useDispatch();
-  const [currentPage, setCurrentPage] = useState(PAGES[0]);
 
   useEffect(() => {
     const token = Cookies.get('token');
@@ -29,7 +29,7 @@ const useApp = () => {
       const user = await response.json();
       if (!user) return;
       dispatch(setUser(camelcaseKeys(user)));
-      setCurrentPage(PAGES[1]);
+      dispatch(setCurrentPage(PAGES[1]));
     } catch(error) {
       console.error(error);
     }

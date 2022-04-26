@@ -36,6 +36,16 @@ const ViewJob = () => {
             </span>
           </div>
         </div>
+        {user.role === 'applicant' && (
+          <div className="mt-10 flex justify-end">
+            <button
+              className="block h-[40px] bg-black text-white w-[100px] rounded-md"
+              onClick={() => null}
+            >
+              Apply
+            </button>
+          </div>
+        )}
       </div>
       {user.role === 'recruiter' && (
         <Applicants jobId={job.id} />

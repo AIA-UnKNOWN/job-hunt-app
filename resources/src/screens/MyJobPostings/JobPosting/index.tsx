@@ -4,7 +4,7 @@ import useJobPosting from './hook';
 const JobPosting = ({
   id, title, description, minSalary, maxSalary, status
 }) => {
-  const { viewJob } = useJobPosting();
+  const { viewJob, deleteJob } = useJobPosting();
 
   return (
     <div className="border border-black p-4 rounded-md mb-2">
@@ -25,6 +25,7 @@ const JobPosting = ({
       <div className="flex justify-between items-center mt-4">
         <button
           className="h-[40px] w-[40px] flex justify-center items-center border border-black rounded-full"
+          onClick={() => deleteJob(id)}
         >
           <FaTrashAlt />
         </button>

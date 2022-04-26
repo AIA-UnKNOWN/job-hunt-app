@@ -1,4 +1,5 @@
 import useApplicants from './hook';
+import Applicant from './Applicant';
 
 const Applicants = ({ jobId }) => {
   const { applicants } = useApplicants(jobId);
@@ -10,22 +11,11 @@ const Applicants = ({ jobId }) => {
       </p>
       <div className="mt-2">
         {applicants.length > 0 ? applicants.map(applicant => (
-          <div
+          <Applicant
             key={applicant.id}
-            className="border border-black flex justify-between items-center h-[50px] p-1 rounded-md"
-          >
-            <div>
-              <span>{applicant.name}</span>
-            </div>
-            <div className="h-full">
-              <button
-                className="border border-black w-[80px] h-full rounded-md ml-1"
-              >Reject</button>
-              <button
-                className="bg-black text-white w-[80px] h-full rounded-md ml-1"
-              >Accept</button>
-            </div>
-          </div>
+            id={applicant.id}
+            name={applicant.name}
+          />
         )) : (
           <div>
             <span>No applicants for this job.</span>

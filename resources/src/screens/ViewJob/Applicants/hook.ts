@@ -26,7 +26,7 @@ const useApplicants = jobId => {
     }
   }
 
-  return { applicants };
+  return { applicants, getJobApplicants };
 }
 
 export default useApplicants;

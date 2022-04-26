@@ -46,7 +46,7 @@ const useApp = () => {
     }
   }
 
-  return { renderPage }
+  return { renderPage, setCurrentPage, PAGES }
 }
 
 export default useApp;

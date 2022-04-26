@@ -1,9 +1,9 @@
-import { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
+import useApplicantHeader from './hook';
 
 const ApplicantHeader = () => {
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const { isCollapsed, setIsCollapsed, logout } = useApplicantHeader();
   const jobPostingList = useSelector(state => state.myJobPostings.list);
 
   return (
@@ -30,17 +30,10 @@ const ApplicantHeader = () => {
               </span>
             </div>
           </button>
-          <button className="flex items-center my-2">
-            <span className="mr-2 text-[20px]">
-              Applied Jobs
-            </span>
-            <div className="h-[40px] w-[40px] bg-light-gray text-white rounded-full flex justify-center items-center">
-              <span className="text-[20px] font-bold">
-                5
-              </span>
-            </div>
-          </button>
-          <button className="flex items-center my-2">
+          <button
+            className="flex items-center my-2"
+            onClick={logout}
+          >
             <span className="mr-2 text-[20px]">
               Logout
             </span>
